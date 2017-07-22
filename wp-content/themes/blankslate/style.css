@@ -1,0 +1,59 @@
+body {font-family: 'Overpass', sans-serif;}
+
+.btn, .btn:hover {box-shadow: none; border-radius: 0; height:60px; line-height: 60px;}
+
+
+.max-width {max-width:1100px; margin: 0 auto !important; float: none !important;}
+
+.header {height:90px; width: 100%; background: #fff; position: fixed; z-index:999; border-bottom: 1px #ddd solid;}
+.txt-logo {width:202px; padding-top:10px; }
+.nav {text-align: right; position: relative; padding:50px 0 0 0;}
+.nav a {color:#333; margin-left:20px; font-size:1.2em; font-weight:800;}
+.nav a:hover {border-bottom:3px solid #33cc33;}
+.top-nav {background: #33cc33; padding:5px 10px; position: absolute; top:0; right: 0; color:#fff; font-size:.8em;}
+.top-nav a {color:#fff; margin:0; font-weight: normal; }
+
+.footer {background:#333; color:#fff; padding: 50px 0 50px 0; margin-bottom: 0px !important;}
+.footer a {color:#fff}
+
+.page-container {padding-top:90px;}
+
+/*HOME*/
+.hero-row {background:url(/wp-content/themes/blankslate/img/hero-1.jpg) no-repeat; background-size: cover; background-position:center; height:540px; margin-bottom: 50px;}
+.hero {position: relative;}
+.hero > h1 {position: absolute; left:0px; top:0px; margin-top:20px; color:#fff; font-size: 1.7em; line-height: 1.2; font-weight: normal}
+.hero-video {position: absolute; right:50px; top:100px;}
+.video-row {padding-bottom:50px;}
+.benefits-row {text-align: center; font-size: 1.2em; font-weight:800; line-height: 1.2; padding-bottom: 50px;}
+.benefits-row .fa {color:#33cc33; padding-bottom:10px;}
+.audience-row {background:url(/wp-content/themes/blankslate/img/laptop.jpg) no-repeat; height:1125px; width:1280px; position: relative;}
+.audience-row h2 {font-size:2.7em; color:#fff;}
+.audience-row p {font-size: 1.3em; color:#fff;}
+.aud-left, .aud-right {margin-top: 100px;}
+.aud-left h2, .aud-left p {padding-right: 20px;}
+.aud-right h2, .aud-right p {padding-left: 20px;}
+.laptop-screen {position:absolute; bottom: 65px; left:190px; width:890px; height:501px; background:#000; transform: scale(.98);}
+.left-screen {position:absolute; left:50px; bottom:250px;}
+.right-screen {position:absolute; right:50px; bottom:250px;}
+.left-screen .fa, .right-screen .fa {background:#fff; color:#33cc33; border-radius: 50%; width:50px; height:50px; line-height: 50px !important; text-align:center; cursor: pointer;}
+.left-screen .fa:hover, .right-screen .fa:hover {background:#33cc33; color:#fff;}
+.sample-site {position: absolute; transition: all 700ms;}
+.hide-site {opacity: 0; transition: all 700ms;}
+
+/* */
+.advertiser-row {background:url(/wp-content/themes/blankslate/img/hero-advertisers.jpg) no-repeat; background-size: cover; background-position:center; height:783px; margin-bottom: 50px; padding-top: 50px;}
+.advertiser-row h1 {color:#fff; font-size:3em; text-transform: uppercase; font-weight: 800}
+.advertiser-row h2 {color:#fff; font-size:1.7em; line-height: 1.5}
+.advertiser-row li {color:#fff; font-size:1.4em; padding-bottom: 10px;}
+.advertiser-row .fa {color:#33cc33; font-size:1.2em;}
+
+.form-container {background: #fff; padding:30px;}
+.input-field label {font-size:1.3em;}
+.form-container .btn {width:100%;font-size:1.5em;}
+.error {background:#cc3333; color:#fff; padding:20px;}
+.success {background:#33cc33; color:#fff; padding:20px;}
+
+@media only screen and (min-width: 993px) {
+  .container {width:90%;}
+
+}
