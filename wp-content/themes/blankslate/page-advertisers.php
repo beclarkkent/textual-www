@@ -5,6 +5,13 @@
 //response generation function
 
 $response = "<div class='required-label'>All fields required.</div>";
+ if (is_page("advertisers")) {
+   $contact_type = "Advertiser";
+ } else if (is_page("publishers")) {
+   $contact_type = "Publisher";
+ } else {
+   $contact_type = "General";
+ }
 
 //function to generate response
 function my_contact_form_generate_response($type, $message, $feedback){
@@ -30,10 +37,12 @@ $lname = $_POST['lname'];
 $email = $_POST['email'];
 $wphone = $_POST['wphone'];
 $human = $_POST['human'];
+$website = $_POST['website'];
+$note = $_POST['note'];
 
 //php mailer variables
 $to = get_option('admin_email');
-$subject = "New advertiser sign up";
+$subject = "New ". $contact_type ." sign up";
 $headers = 'From: '. $email . "\r\n" .
   'Reply-To: ' . $email . "\r\n";
 
@@ -47,21 +56,38 @@ if(!$human == 0){
     else //email is valid
     {
       //validate presence of name and message
-      if(empty($company) || empty($fname) || empty($lname) || empty($email) || empty($wphone) || empty($human)){
+      if($contact_type != "General" && (empty($company) || empty($fname) || empty($lname) || empty($email) || empty($wphone) || empty($human))){
+        my_contact_form_generate_response("error", $missing_content);
+      }
+      else if ($contact_type == "General" && (empty($fname) || empty($lname) || empty($email) || empty($wphone) || empty($human))) {
         my_contact_form_generate_response("error", $missing_content);
       }
       else //ready to go!
       {
-        $email_body = "Company: " . $company . "\r\n" .
+        if($contact_type != "General") { $getCompany="<strong>Company:</strong> " . $company . "<br/>"; } else { $getCompany=''; }
+        if($contact_type == "General") { $getWebsite="<strong>Website:</strong> " . $website . "<br/>"; } else { $getWebsite=''; }
+        if($contact_type == "General") { $getNote="<strong>Note:</strong> " . $note . "<br/>"; } else { $getNote=''; }
+
+        if($contact_type != "General") { $getCompanyEmail="First Name:  " . $company . "\r\n"; } else { $getCompanyEmail=''; }
+        if($contact_type == "General") { $getWebsiteEmail="Website: " . $website . "\r\n"; } else { $getWebsiteEmail=''; }
+        if($contact_type == "General") { $getNoteEmail="Note: " . $note . "\r\n"; } else { $getNoteEmail=''; }
+
+        $email_body = "Contact Type: " . $contact_type . "\r\n" .
+          $getCompanyEmail .
           "First Name: " . $fname . "\r\n" .
           "Last Name: " . $lname . "\r\n" .
+          $getWebsiteEmail .
           "Email: " . $email . "\r\n" .
-          "Work Phone: " . $wphone;
-        $feedback_body = "<br/><strong>Company:</strong> " . $company . "<br/>" .
+          "Work Phone: " . $wphone . "\r\n" .
+          $getNoteEmail;
+        $feedback_body = "<br/>".
+            $getCompany.
             "<strong>First Name:</strong> " . $fname . "<br/>" .
             "<strong>Last Name:</strong> " . $lname . "<br/>" .
+            $getWebsite.
             "<strong>Email:</strong> " . $email . "<br/>" .
-            "<strong>Work Phone:</strong> " . $wphone;
+            "<strong>Work Phone:</strong> " . $wphone . "<br/>" .
+            $getNote;
         $sent = wp_mail($to, $subject, strip_tags($email_body), $headers);
         if($sent) my_contact_form_generate_response("success", $message_sent, $feedback_body); //message sent!
         else my_contact_form_generate_response("error", $message_unsent); //message wasn't sent
@@ -85,10 +111,12 @@ else if ($_POST['submitted']) my_contact_form_generate_response("error", $missin
             <div class="form-container">
               <form action="<?php the_permalink(); ?>" method="post"/>
                 <div class="col s12"><?php echo $response; ?></div>
+                <?php if($contact_type != "General") { ?>
                 <div class="input-field col s12">
                   <input type="text" id="company" name="company" <?php if(!is_null($_POST['company'])) { ?>value="<?php echo esc_attr($_POST['company']); ?>"<?php } ?> />
                   <label for="company">Company</label>
                 </div>
+                <?php } ?>
                 <div class="input-field col s12">
                   <input type="text" id="fname" name="fname" <?php if(!is_null($_POST['fname'])) { ?>value="<?php echo esc_attr($_POST['fname']); ?>"<?php } ?>/>
                   <label for="fname">First Name</label>
@@ -97,6 +125,12 @@ else if ($_POST['submitted']) my_contact_form_generate_response("error", $missin
                   <input type="text" id="lname" name="lname" <?php if(!is_null($_POST['lname'])) { ?>value="<?php echo esc_attr($_POST['lname']); ?>"<?php } ?>/>
                   <label for="lname">Last Name</label>
                 </div>
+                <?php if($contact_type == "General") { ?>
+                <div class="input-field col s12">
+                  <input type="text" id="website" name="website" <?php if(!is_null($_POST['website'])) { ?>value="<?php echo esc_attr($_POST['website']); ?>"<?php } ?> />
+                  <label for="website">Website</label>
+                </div>
+                <?php } ?>
                 <div class="input-field col s12">
                   <input type="email" id="email" name="email" <?php if(!is_null($_POST['email'])) { ?>value="<?php echo esc_attr($_POST['email']); ?>"<?php } ?>/>
                   <label for="email">Email Address</label>
@@ -105,13 +139,19 @@ else if ($_POST['submitted']) my_contact_form_generate_response("error", $missin
                   <input type="tel" id="wphone" name="wphone" <?php if(!is_null($_POST['wphone'])) { ?>value="<?php echo esc_attr($_POST['wphone']); ?>"<?php } ?>/>
                   <label for="wphone">Work Phone</label>
                 </div>
+                <?php if($contact_type == "General") { ?>
+                <div class="input-field col s12">
+                  <textarea class="materialize-textarea" id="note" name="note"><?php if(!is_null($_POST['note'])) { echo esc_attr($_POST['note']); } ?></textarea>
+                  <label for="note">Note</label>
+                </div>
+                <?php } ?>
                 <div class="col s12">
                   Human Verification:
                   <input type="number" id="human" name="human" style="width: 60px;"/><span> + 3 = 5</span>
                 </div>
                 <div class="col s12">
                   <input type="hidden" name="submitted" value="1">
-                  <button class="btn" type="submit" name="action">Sign Up</button>
+                  <button class="btn" type="submit" name="action"><?php if($contact_type == "General") { echo "Send"; } else { echo "Sign Up"; } ?></button>
                 </div>
                 <div style="clear:both"></div>
               </form>

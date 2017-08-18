@@ -13,12 +13,44 @@ body {font-family: 'Overpass', sans-serif;}
 .top-nav {background: #33cc33; padding:5px 10px; position: absolute; top:0; right: 0; color:#fff; font-size:.8em;}
 .top-nav a {color:#fff; margin:0; font-weight: normal; }
 
+.mobile-nav-button {display:none; text-align: right; padding-top:20px;}
+.mobile-nav {
+  position: fixed;
+width: 300px;
+right: 0;
+top: 40px;
+margin: 0;
+height:300px;
+background:#fff;
+-webkit-transform: translateX(100%);
+transform: translateX(100%);
+height: 100%;
+height: calc(100% + 60px);
+height: -moz-calc(100%);
+padding-bottom: 60px;
+background-color: #fff;
+z-index: 999;
+overflow-y: auto;
+will-change: transform;
+-webkit-backface-visibility: hidden;
+backface-visibility: hidden;
+-webkit-transform: translateX(105%);
+transform: translateX(105%);
+}
+.mobile-nav ul {margin: 0 padding: 0}
+.mobile-nav ul li {list-style: none; padding:15px 0 15px 0; border-bottom:1px solid #ddd; text-align: center}
+.mobile-nav a {color:#33cc33; font-size: 1.6em;}
+
 .footer {background:#333; color:#fff; padding: 50px 0 50px 0; margin-bottom: 0px !important;}
 .footer a {color:#fff}
 
 .page-container {padding-top:90px;}
+.page-header {padding: 50px 0 50px 0; background: #333;}
+.page-header h1 {text-align:center; font-size:3em; margin: 0; color:#fff;}
+.page-header h2 {text-align:center; font-size:1em; margin:0 0 10px 0; color:#fff;}
 
 /*HOME*/
+.hero-row-mobile {display: none;}
 .hero-row {background:url(/wp-content/themes/blankslate/img/hero-1.jpg) no-repeat; background-size: cover; background-position:center; height:540px; margin-bottom: 50px;}
 .hero {position: relative;}
 .hero > h1 {position: absolute; left:0px; top:0px; margin-top:20px; color:#fff; font-size: 1.7em; line-height: 1.2; font-weight: normal}
@@ -26,7 +58,8 @@ body {font-family: 'Overpass', sans-serif;}
 .video-row {padding-bottom:50px;}
 .benefits-row {text-align: center; font-size: 1.2em; font-weight:800; line-height: 1.2; padding-bottom: 50px;}
 .benefits-row .fa {color:#33cc33; padding-bottom:10px;}
-.audience-row {background:url(/wp-content/themes/blankslate/img/laptop.jpg) no-repeat; height:1125px; width:1280px; position: relative;}
+.audience-row-small {display: none;}
+.audience-row {background:url(/wp-content/themes/blankslate/img/laptop.jpg) no-repeat; height:1125px; width:1280px; position: relative; margin-bottom: 0;}
 .audience-row h2 {font-size:2.7em; color:#fff;}
 .audience-row p {font-size: 1.3em; color:#fff;}
 .aud-left, .aud-right {margin-top: 100px;}
@@ -40,12 +73,65 @@ body {font-family: 'Overpass', sans-serif;}
 .sample-site {position: absolute; transition: all 700ms;}
 .hide-site {opacity: 0; transition: all 700ms;}
 
+
 /* */
-.advertiser-row {background:url(/wp-content/themes/blankslate/img/hero-advertisers.jpg) no-repeat; background-size: cover; background-position:center; height:783px; margin-bottom: 50px; padding-top: 50px;}
-.advertiser-row h1 {color:#fff; font-size:3em; text-transform: uppercase; font-weight: 800}
-.advertiser-row h2 {color:#fff; font-size:1.7em; line-height: 1.5}
+.advertiser-row {background:url(/wp-content/themes/blankslate/img/hero-advertisers.jpg) no-repeat; background-size: cover; background-position:center; height:900px; margin-bottom:0; padding-top: 50px;}
+.advertiser-row h1, .advertiser-row h2.contact-h2 {color:#fff; font-size:3em; text-transform: uppercase; font-weight: 800}
+.advertiser-row h2, .advertiser-row h3.contact-h3 {color:#fff; font-size:1.7em; line-height: 1.5}
 .advertiser-row li {color:#fff; font-size:1.4em; padding-bottom: 10px;}
 .advertiser-row .fa {color:#33cc33; font-size:1.2em;}
+
+.how-row {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+   align-items: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+}
+.how-row p {
+  font-size:1.3em;
+  line-height: 1.5;
+  -webkit-flex:0 1 auto;
+  flex:0 1 450px;
+  }
+.how-img {
+  text-align: center;
+  -webkit-flex:0 1 450px;
+  flex:0 1 450px;
+}
+.how-left p {}
+.how-left .how-img {}
+.how-right p {-webkit-order:2; order:2; padding-left:30px;}
+.how-right .how-img {-webkit-order:1; order:1;}
+.how-video {text-align: center; background:url(/wp-content/themes/blankslate/img/hero-2.jpg) no-repeat; background-size: cover; background-position:center; height:598px; padding-top: 80px;}
+.how-video h3 {color:#fff; font-size: 2em; text-transform: uppercase; margin-bottom: 30px;}
+
+.how-left img {opacity:0; bottom:-200px; position: relative;}
+.how-right img {opacity:0; bottom:-200px; position: relative;}
+.how-left img.animateIn {opacity:1; bottom:0; transition: all 1s ease; -webkit-transition: all 1s ease;}
+.how-right img.animateIn {opacity:1; bottom:0; transition: all 1s ease; -webkit-transition: all 1s ease;}
+
+.about-quote {padding-top:50px; font-size:1.5em; font-style: italic; text-align: center; width:65%; margin: 0 auto; color:#999;}
+.about-body {
+  padding:50px 0 50px 0;
+  width:70%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+   -webkit-justify-content: center;
+   justify-content: center;
+}
+.about-text p {font-size:1.3em;}
+.about-text {-webkit-flex:0 1 auto; flex:0 1 auto;}
+.about-img {-webkit-flex:1 0 300px; flex:1 0 300px; text-align: right;}
+
 
 .form-container {background: #fff; padding:30px;}
 .input-field label {font-size:1.3em;}
@@ -53,7 +139,88 @@ body {font-family: 'Overpass', sans-serif;}
 .error {background:#cc3333; color:#fff; padding:20px;}
 .success {background:#33cc33; color:#fff; padding:20px;}
 
+/*FOOTER FORM*/
+.footer-form {padding:30px 0; background: #e9e9e9;}
+.footer-form h2 {font-size: 2em; text-transform: uppercase; font-weight:800; text-align: center;}
+.footer-form h3 {font-size:1.5em; text-align: center; width:60%; margin:0 auto 20px auto; }
+.form-fields {
+  padding:20px; background: #fff;
+}
+.contact-row {margin-top: 100px;}
+
+
 @media only screen and (min-width: 993px) {
   .container {width:90%;}
+
+}
+
+@media only screen and (max-width: 800px) {
+  .container {width:90%;}
+  .max-width {width:90%;}
+
+  .hero > h1 {position:relative; text-align: center; width:90%; margin: 20px auto;}
+  .hero-video {position:relative; width:100%; top:0; right:0;}
+  .hero-video video {width:100%;height:100%;}
+
+  .how-img img {width:80%}
+  .about-quote {width:70%;}
+  .about-body {width:90%;}
+
+  .audience-row-large {display: none;}
+  .audience-row-small {display: inline-block;}
+  .audience-row {background:none; height:auto; width:100%; position: relative; margin-bottom: 0;}
+  .audience-row h2 {font-size:2.7em; color:#000; width:80%; margin: 20px auto; text-align: center;}
+  .audience-row p {font-size: 1.3em; color:#000; width:80%; margin: 0 auto 20px auto; text-align: center;}
+  .aud-left, .aud-right {margin-top: 0;}
+  .aud-left h2, .aud-left p {padding-right: 0px;}
+  .aud-right h2, .aud-right p {padding-left: 0px;}
+  .laptop-screen {position:static; width:100%; height:400px; background:none; transform: scale(1);}
+  .laptop-screen img {width:100%;}
+  .left-screen {position:absolute; left:20px; bottom:150px;}
+  .right-screen {position:absolute; right:20px; bottom:150px;}
+  .left-screen .fa, .right-screen .fa {background:#fff; color:#33cc33; border-radius: 50%; width:70px; height:70px; line-height: 70px !important; font-size:3em; text-align:center; cursor: pointer; box-shadow: 0 0 20px rgba(0,0,0,.5)}
+  .left-screen .fa:hover, .right-screen .fa:hover {background:#33cc33; color:#fff;}
+  .sample-site {position: absolute; transition: all 700ms; border:1px #ddd solid;}
+
+  .advertiser-row {height:auto; padding-bottom: 50px;}
+  .advertiser-row.row .col .s6 {width:100%;}
+  .advertiser-row h2.contact-h2 {text-align: center;}
+  .advertiser-row h3.contact-h3 {text-align: center;}
+
+  #human {width:30px !important;}
+
+}
+
+@media only screen and (max-width: 375px) {
+  .nav {display: none;}
+  .mobile-nav-button {display: block;}
+
+  .hero-row-mobile {display: inline-block; background:url(/wp-content/themes/blankslate/img/hero-1.jpg) no-repeat; background-size: cover; background-position:center; height:200px; width:100%;}
+  .hero-row {height:auto; background: none; position: relative; margin-top: -200px;}
+  .hero > h1 {}
+  .hero-video {position:relative; width:100%; top:0; right:0;}
+  .hero-video video {width:100%;height:100%; box-shadow: 0 0 20px rgba(0,0,0,.5)}
+
+  .benefits-row {padding:25px;}
+  .benefits-row .spacer {display:none;}
+  .benefits-row.row .col.s2 {width:50%; padding-bottom:10px;}
+
+  .laptop-screen {height:200px;}
+  .left-screen {position:absolute; left:20px; bottom:-40px;}
+  .right-screen {position:absolute; right:20px; bottom:-40px;}
+  .left-screen .fa, .right-screen .fa {background:#fff; color:#33cc33; border-radius: 50%; width:50px; height:50px; line-height: 50px !important; font-size:2em; text-align:center; cursor: pointer; box-shadow: 0 0 10px rgba(0,0,0,.5)}
+
+  .how-row {display: inline-block;}
+  .how-row .how-img img {width:90%;}
+  .how-video {height:400px; padding-top:50px; }
+  .how-right p {padding-left:0;}
+  .how-video h3 {color:#fff; font-size: 2em; text-transform: uppercase; margin-bottom: 20px;}
+  .how-video video {width:90%; height:auto; }
+  .about-quote {width:90%;}
+  .about-body {display: block; margin: 0 auto;}
+  .about-text {width:90%;margin:0 auto;}
+  .about-img {text-align: center;}
+
+  .advertiser-row
 
 }
