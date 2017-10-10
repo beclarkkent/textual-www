@@ -10,7 +10,12 @@ $response = "<div class='required-label'>All fields required.</div>";
  } else if (is_page("publishers")) {
    $contact_type = "Publisher";
  } else {
-   $contact_type = "General";
+   if ($_POST['referring'] == "demo") {
+     $contact_type = "Publisher";
+   } else {
+     $contact_type = "General";
+   }
+
  }
 
 //function to generate response

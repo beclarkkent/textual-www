@@ -15,7 +15,7 @@ if (is_page("advertisers") || is_page("publishers") || is_page("contact")) {
        </div>
        <div class="col s6">
          <div class="form-container">
-           <form action="/contact/" method="post"/ class="contact-form">
+           <form action="/contact/" method="post" class="contact-form">
                <div class="col s12"><div class='required-label'>All fields required.</div></div>
                <div class="input-field col s12">
                  <input type="text" id="fname" name="fname"/>

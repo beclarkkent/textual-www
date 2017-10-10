@@ -1,5 +1,7 @@
 body {font-family: 'Overpass', sans-serif;}
 
+a {color: #33cc33;}
+
 .btn, .btn:hover {box-shadow: none; border-radius: 0; height:60px; line-height: 60px;}
 
 
@@ -148,6 +150,38 @@ transform: translateX(105%);
 }
 .contact-row {margin-top: 100px;}
 
+/*DEMO*/
+.demo {max-width:1000px; border:1px solid #ddd; margin: 0 auto; padding:20px;}
+.demo-header {text-align: center; padding-bottom:20px; max-width: 600px; margin:0 auto;}
+.demo-header h2 {font-size: 2em; font-weight: 800;}
+.demo-header p {font-size:1.3em;}
+.demo-logo-news img {width:200px;}
+.demo-menu-news ul li {display: inline-block; padding-right:20px; font-family:'Oswald', sans-serif;}
+.demo-content-news {border-top:#000 solid 1px; padding:10px}
+.demo-content-news h2 {font-family:'Oswald', sans-serif;}
+.demo-share-bar li {float:left; padding:10px; border-radius: 6px; color:#fff; width:100px; height:40px; margin-right:5px;}
+.textual-share-button {background:#33cc33}
+.textual-share-button img {position: relative; top:0px; left:-5px;}
+.textual-share-button:hover {opacity:.7;}
+.facebook-share {background: #3b5998;}
+.twitter-share {background: #55acee;}
+.email-share {background:#666;}
+.pinterest-share {background:#bd081c;}
+
+.share-button-mock-outer {
+  font-weight: 800;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+   align-items: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+}
+.textual-share-mock {margin-left:10px; background:#33cc33;padding:10px; border-radius: 6px; color:#fff; width:100px; height:40px; text-align: left;}
+.textual-share-mock img {position: relative; top:0px; left:-5px;}
 
 @media only screen and (min-width: 993px) {
   .container {width:90%;}
@@ -221,6 +255,9 @@ transform: translateX(105%);
   .about-text {width:90%;margin:0 auto;}
   .about-img {text-align: center;}
 
-  .advertiser-row
+  .demo-menu-news {display: none;}
+  .demo-share-bar li, .textual-share-mock {width:50px;}
+
+  /*#textual-frame-container iframe {width:100% !important; height:100vh !important;}*/
 
 }

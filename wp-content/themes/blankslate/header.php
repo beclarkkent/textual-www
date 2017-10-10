@@ -15,7 +15,7 @@
 <script type="text/javascript" src="/wp-content/themes/blankslate/js/scripts.js"></script>
 
   <!--Import fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Overpass:400,400i,800,800i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald|Overpass:400,400i,800,800i" rel="stylesheet">
 
   <!--Import icons-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
