@@ -19,7 +19,7 @@ function textualMessageListener(event) {
         var style = JSON.parse(decodeURIComponent(msg[2]));
 
         formContainer = document.getElementById('textual-frame-container');
-        formContainer.style.top = (textualOpenerElement.offsetTop + textualOpenerElement.offsetHeight) + 40 + "px";
+        formContainer.style.top = (textualOpenerElement.offsetTop + textualOpenerElement.offsetHeight) + 0 + "px";
         // if (window.innerWidth - textualOpenerElement.offsetLeft < 600) {
         //     // Open to the left
         //     console.log("left");

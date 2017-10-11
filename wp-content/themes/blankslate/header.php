@@ -12,7 +12,8 @@
   <script type="text/javascript" src="/wp-content/themes/blankslate/js/materialize.min.js"></script>
   <link type="text/css" rel="stylesheet" href="/wp-content/themes/blankslate/css/materialize.min.css"  media="screen,projection"/>
 
-<script type="text/javascript" src="/wp-content/themes/blankslate/js/scripts.js"></script>
+  <!--Textual JS-->
+  <script type="text/javascript" src="/wp-content/themes/blankslate/js/scripts.js?<?php $date = new DateTime();echo $date->getTimestamp();?>"></script>
 
   <!--Import fonts-->
   <link href="https://fonts.googleapis.com/css?family=Oswald|Overpass:400,400i,800,800i" rel="stylesheet">
@@ -21,11 +22,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
   <!--Import styles-->
-  <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
+  <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>?<?php $date = new DateTime();echo $date->getTimestamp();?>" />
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-
+<img src="/wp-content/themes/blankslate/img/sample-site-img-news.png" style="display:none;"/>
   <!--HEADER-->
   <div class="header">
     <div class="row max-width">

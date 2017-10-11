@@ -63,7 +63,7 @@ function prevSite() {
 
 
 /* HOW PAGE TRANSIITIONS */
-var animationOffset = deviceWidth > 800 ? 200 : 0;
+var animationOffset = deviceWidth > 800 ? 50 : 0;
 var options = [
       {selector: '#how-img-1', offset: 0, callback: function(el) {
         jQuery('#how-img-1').addClass('animateIn');
