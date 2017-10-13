@@ -1,7 +1,7 @@
 </div>
 
 <?php
-if (is_page("advertisers") || is_page("publishers") || is_page("contact")) {
+if (is_page("advertisers") || is_page("publishers") || is_page("contact")) || is_page("publishers-demo")) {
 } else {
 
   ?>

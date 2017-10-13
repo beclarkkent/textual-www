@@ -114,6 +114,8 @@ transform: translateX(105%);
 
 .how-left img {opacity:0; bottom:-200px; position: relative;}
 .how-right img {opacity:0; bottom:-200px; position: relative;}
+.no-animate img {opacity:1; bottom:0px; position: relative;}
+.no-animate img {opacity:1; bottom:0px; position: relative;}
 .how-left img.animateIn {opacity:1; bottom:0; transition: all 1s ease; -webkit-transition: all 1s ease;}
 .how-right img.animateIn {opacity:1; bottom:0; transition: all 1s ease; -webkit-transition: all 1s ease;}
 
